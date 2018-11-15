@@ -60,8 +60,9 @@ def select_character_names_and_number_of_books_they_are_in
     SELECT character_books.character_id AS cid, books.title AS bn
     FROM character_books
     JOIN books ON character_books.book_id = books.id)
-  SELECT characters.name, c_b_b.bn
+  SELECT characters.name, COUNT(c_b_b.bn)
   FROM characters
-  JOIN c_b_b ON characters.id = c_b_b.cid;
+  JOIN c_b_b ON characters.id = c_b_b.cid
+  GROUP BY 1;
   "
 end
