@@ -57,7 +57,7 @@ end
 def select_character_names_and_number_of_books_they_are_in
   "
   WITH c_b_b AS (
-    SELECT character_books.character_id AS cid, books.name AS bn
+    SELECT character_books.character_id AS cid, books.title AS bn
     FROM character_books
     JOIN books ON character_books.book_id = books.id)
   SELECT characters.name, c_b_b.bn
